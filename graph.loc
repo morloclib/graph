@@ -1,0 +1,70 @@
+module Graph {
+
+import cppbase (Map)
+
+source Cpp from "graph.hpp"
+  ( "EdgeGraph"
+  , "packBinaryTree"
+  , "packEdgeBinaryTree"
+  , "packEdgeGraph"
+  , "packEdgeTree"
+  , "packGraph"
+  , "packTree"
+  , "unpackBinaryTree"
+  , "unpackEdgeBinaryTree"
+  , "unpackEdgeGraph"
+  , "unpackEdgeTree"
+  , "unpackGraph"
+  , "unpackTree"
+  );
+
+type Cpp (Tree a) = "Tree<$1>" a
+type Cpp (EdgeTree a b) = "EdgeTree<$1,$2>" a b
+type Cpp (BinaryTree a) = "BinaryTree<$1>" a
+type Cpp (EdgeBinaryTree a b) = "EdgeBinaryTree<$1,$2>" a b
+type Cpp (Graph a) = "Graph<$1>" a
+type Cpp (EdgeGraph a b) = "EdgeGraph<$1,$2>" a b
+
+
+
+packTree :: pack => ([a], [(Int, Int)]) -> Tree a;
+packTree Cpp :: pack => ([a], [("size_t","size_t")]) -> "Tree<$1>" a;
+
+unpackTree :: unpack => Tree a -> ([a], [(Int, Int)]);
+unpackTree Cpp :: unpack => "Tree<$1>" a -> ([("size_t", a)], [("size_t","size_t")]);
+
+packEdgeTree :: pack => ([a], [(Int, Int, b)]) -> EdgeTree a b;
+packEdgeTree Cpp :: pack => ([("size_t", a)], [("size_t","size_t", b)]) -> "EdgeTree<$1>" a b;
+
+unpackEdgeTree :: unpack => EdgeTree a b -> ([a], [(Int, Int, b)]);
+unpackEdgeTree Cpp :: unpack => "EdgeTree<$1>" a b -> ([("size_t", a)], [("size_t", "size_t", b)]);
+
+
+
+packBinaryTree :: pack => ([a], [(Int, Int)]) -> BinaryTree a;
+packBinaryTree Cpp :: pack => ([("size_t", a)], [("size_t","size_t")]) -> "BinaryTree<$1>" a;
+
+unpackBinaryTree :: unpack => BinaryTree a -> ([a], [(Int, Int)]);
+unpackBinaryTree Cpp :: unpack => "BinaryTree<$1>" a -> ([("size_t", a)], [("size_t","size_t")]);
+
+packEdgeBinaryTree :: pack => ([a], [(Int, Int, b)]) -> EdgeBinaryTree a b;
+packEdgeBinaryTree Cpp :: pack => ([("size_t", a)], [("size_t","size_t", b)]) -> "EdgeBinaryTree<$1>" a b;
+
+unpackEdgeBinaryTree :: unpack => EdgeBinaryTree a b -> ([a], [(Int, Int, b)]);
+unpackEdgeBinaryTree Cpp :: unpack => "EdgeBinaryTree<$1>" a b -> ([("size_t", a)], [("size_t", "size_t", b)]);
+
+
+
+packGraph :: pack => ([a], [(Int, Int)]) -> Graph a;
+packGraph Cpp :: pack => ([("size_t", a)], [("size_t","size_t")]) -> "Graph<$1>" a;
+
+unpackGraph :: unpack => Graph a -> ([a], [(Int, Int)]);
+unpackGraph Cpp :: unpack => "Graph<$1>" a -> ([("size_t", a)], [("size_t","size_t")]);
+
+packEdgeGraph :: pack => ([a], [(Int, Int, b)]) -> EdgeGraph a b;
+packEdgeGraph Cpp :: pack => ([("size_t", a)], [("size_t","size_t", b)]) -> "EdgeGraph<$1>" a b;
+
+unpackEdgeGraph :: unpack => EdgeGraph a b -> ([a], [(Int, Int, b)]);
+unpackEdgeGraph Cpp :: unpack => "EdgeGraph<$1>" a b -> ([("size_t", a)], [("size_t", "size_t", b)]);
+
+}
