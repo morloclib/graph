@@ -1,6 +1,9 @@
 #ifndef __GRAPH_HPP__
 #define __GRAPH_HPP__
 
+#include <vector>
+#include <tuple>
+
 
 template <class V>
 Tree<V> packTree(std::tuple<std::vector<V>,std::vector<std::tuple<size_t,size_t>>>);
