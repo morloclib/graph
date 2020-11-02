@@ -1,7 +1,5 @@
 module Graph {
 
-import cppbase (Map)
-
 source Cpp from "graph.hpp"
   ( "EdgeGraph"
   , "packBinaryTree"
@@ -18,12 +16,12 @@ source Cpp from "graph.hpp"
   , "unpackTree"
   );
 
-type Cpp (Tree a) = "Tree<$1>" a
-type Cpp (EdgeTree a b) = "EdgeTree<$1,$2>" a b
-type Cpp (BinaryTree a) = "BinaryTree<$1>" a
-type Cpp (EdgeBinaryTree a b) = "EdgeBinaryTree<$1,$2>" a b
-type Cpp (Graph a) = "Graph<$1>" a
-type Cpp (EdgeGraph a b) = "EdgeGraph<$1,$2>" a b
+type Cpp (Tree a) = "Tree<$1>" a;
+type Cpp (EdgeTree a b) = "EdgeTree<$1,$2>" a b;
+type Cpp (BinaryTree a) = "BinaryTree<$1>" a;
+type Cpp (EdgeBinaryTree a b) = "EdgeBinaryTree<$1,$2>" a b;
+type Cpp (Graph a) = "Graph<$1>" a;
+type Cpp (EdgeGraph a b) = "EdgeGraph<$1,$2>" a b;
 
 
 
